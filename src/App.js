@@ -1,34 +1,29 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import NavBar  from './components/navBar/NavBar';
+import { PreLoader } from './components/preLoader/PreLoader';
+import social  from './components/social/Social';
 
-function App() {
+export const App = () => {
+  const [isLoading, setIsLoading] = useState(true);
+
   return (
-    <div className="flex flex-col h-full items-center justify-center bg-gray-200 text-gray-700">
-      <div className="flex items-center">
-        <h1 className="text-6xl font-thin tracking-wider">Create React App + Tailwind CSS</h1>
-      </div>
-      <p className="my-6 tracking-wide">
-        Edit <code>src/App.js</code> and save to reload.
-      </p>
-      <div className="mt-6 flex justify-center">
-        <a
-          className="uppercase hover:underline"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <a
-          className="ml-10 uppercase hover:underline"
-          href="https://tailwindcss.com"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn Tailwind
-        </a>
-      </div>
-    </div>
+    <>
+      {!isLoading && <NavBar />}
+      <>
+        {!isLoading ? (
+          <div>
+            <PreLoader />
+          </div>
+        ) : (
+          <>
+            <div className="flex flex-col h-full items-center justify-center text-black-700">
+              Main
+            </div>
+          </>
+        )}
+      </>
+    </>
   );
-}
+};
 
 export default App;
