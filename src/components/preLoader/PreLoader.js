@@ -1,4 +1,4 @@
-import preloader from '../../assets/music-loader.svg';
+import preloader from '../../assets/B.svg';
 import './preloader.css';
 
 export const PreLoader = () => {

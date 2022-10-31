@@ -1,28 +1,23 @@
 import React, { useEffect, useState } from 'react';
-import NavBar  from './components/navBar/NavBar';
+import NavBar from './components/navBar/NavBar';
 import { PreLoader } from './components/preLoader/PreLoader';
-import social  from './components/social/Social';
 
 export const App = () => {
   const [isLoading, setIsLoading] = useState(true);
-
-  return (
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 1500);
+  }, []);
+  return !isLoading ? (
     <>
-      {!isLoading && <NavBar />}
-      <>
-        {!isLoading ? (
-          <div>
-            <PreLoader />
-          </div>
-        ) : (
-          <>
-            <div className="flex flex-col h-full items-center justify-center text-black-700">
-              Main
-            </div>
-          </>
-        )}
-      </>
+      <NavBar />
+      <div className="flex flex-col text-7xl h-full items-center justify-center text-black-700">
+        Main
+      </div>
     </>
+  ) : (
+    <PreLoader />
   );
 };
 
