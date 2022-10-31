@@ -1,24 +1,23 @@
-import React, { useEffect, useState } from 'react';
-import NavBar from './components/navBar/NavBar';
-import { PreLoader } from './components/preLoader/PreLoader';
+import { Routes, Route } from 'react-router-dom';
+import { ThemeProvider } from 'styled-components';
+import { useState } from 'react';
+import Theme from './styles/theme';
+import Main from './components/main/Main'
+const Home = () => {
+  const [theme, setTheme] = useState(Theme.get());
 
-export const App = () => {
-  const [isLoading, setIsLoading] = useState(true);
-  useEffect(() => {
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 1500);
-  }, []);
-  return !isLoading ? (
-    <>
-      <NavBar />
-      <div className="flex flex-col text-7xl h-full items-center justify-center text-black-700">
-        Main
-      </div>
-    </>
-  ) : (
-    <PreLoader />
+  // Toogle theme on click
+  const toggleTheme = () => {
+    Theme.set(Theme.getName() === 'light' ? 'dark' : 'light');
+    setTheme(Theme.get());
+  };
+  return (
+    <ThemeProvider theme={theme}>
+      <Routes>
+        <Route path="/" element={<Main toggleTheme={toggleTheme} />} />
+      </Routes>
+    </ThemeProvider>
   );
 };
 
-export default App;
+export default Home;
