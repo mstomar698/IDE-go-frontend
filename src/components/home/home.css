@@ -1,0 +1,50 @@
+.home {
+  color: aqua;
+}
+
+textarea {
+  /* background: url(http://i.imgur.com/2cOaJ.png); */
+  /* background-attachment: local; */
+  /* background-repeat: no-repeat; */
+  padding-left: 35px;
+  padding-top: 10px;
+  border-color: #ccc;
+}
+
+/* .message {
+  background-color: green;
+} */
+
+#codingArea {
+  width: 75%;
+  height: 200px;
+  /* border: 0; */
+  /* background: #000; */
+  /* color: #fff; */
+  font-family: monospace;
+  font-size: 1.2em;
+  padding: 10px;
+  box-sizing: border-box;
+}
+#inputArea {
+  width: 75%;
+  height: 75px;
+  /* border: 0; */
+  /* background: #000; */
+  /* color: #fff; */
+  font-family: monospace;
+  font-size: 1.2em;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.button {
+  /* border: 4px;
+  color: red;
+backgroud: green; */
+}
+
+.form {
+  text-align: center;
+  justify-content: center;
+}

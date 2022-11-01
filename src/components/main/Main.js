@@ -2,8 +2,8 @@ import { Container, MainStyle, Toolbar } from '../../mainStyles';
 import * as AiIcons from 'react-icons/ai';
 import * as FaIcons from 'react-icons/fa';
 import { PreLoader } from '../preLoader/PreLoader';
-import Home from '../home/Home'
-import Footer from '../footer/Footer'
+import Home from '../home/Home';
+import Footer from '../footer/Footer';
 import { useEffect, useState } from 'react';
 import { withTheme } from 'styled-components';
 import Theme from '../../styles/theme';
@@ -11,11 +11,11 @@ import Theme from '../../styles/theme';
 const Main = ({ theme, toggleTheme }) => {
   const [drawerVisibility, setDrawerVisibility] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-  
+
   const toggleDrawer = () => {
     setDrawerVisibility(!drawerVisibility);
   };
-  
+
   useEffect(() => {
     setTimeout(() => {
       setIsLoading(false);
@@ -24,13 +24,13 @@ const Main = ({ theme, toggleTheme }) => {
 
   return !isLoading ? (
     <>
-    <Container>
-    {/*_________________________________NavBar________________________________________ */}
+      <Container>
+        {/*_________________________________NavBar________________________________________ */}
         <Toolbar.View fixed>
           <a href="/">
             <img
               src={require(`../../assets/images/${
-                Theme.getName() === 'light' ? 'B.svg' : 'B-rem.png' 
+                Theme.getName() === 'light' ? 'B.svg' : 'B-rem.png'
               }`)}
               width={50}
               alt={'Logo'}
@@ -62,7 +62,7 @@ const Main = ({ theme, toggleTheme }) => {
               Login
             </MainStyle.Item>
             <MainStyle.Item onClick={toggleDrawer} href={'/'}>
-            SignUp
+              SignUp
             </MainStyle.Item>
             <MainStyle.Item href={'#'}>
               {Theme.getName() === 'light' ? (
@@ -74,7 +74,8 @@ const Main = ({ theme, toggleTheme }) => {
           </MainStyle.View>
         )}
         {/*_________________________________Home________________________________________ */}
-        <div className="flex flex-col text-7xl h-full items-center justify-center text-black-700">
+        <div
+          className="flex flex-col h-full items-center justify-center">{/* text-7xl h-full items-center justify-center text-black-700 */}
           <Home theme={theme} toggleTheme={toggleTheme} />
         </div>
         {/*________________________________Footer_________________________________________ */}
